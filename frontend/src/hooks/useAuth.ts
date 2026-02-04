@@ -34,6 +34,7 @@ const useAuth = () => {
       navigate({ to: "/login" })
     },
     onError: (err: ApiError) => {
+      setError(err.message || 'An error occurred')
       handleError(err)
     },
     onSettled: () => {
@@ -54,6 +55,7 @@ const useAuth = () => {
       navigate({ to: "/" })
     },
     onError: (err: ApiError) => {
+      setError(err.message || 'An error occurred')
       handleError(err)
     },
   })
