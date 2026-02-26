@@ -1,5 +1,5 @@
 import { Badge, Container, Flex, Heading, Table } from "@chakra-ui/react"
-import { useQuery, useQueryClient } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import { createFileRoute, useNavigate } from "@tanstack/react-router"
 import { z } from "zod"
 
@@ -33,9 +33,16 @@ export const Route = createFileRoute("/_layout/admin")({
   validateSearch: (search) => usersSearchSchema.parse(search),
 })
 
+function useCurrentUser() {
+  return useQuery<UserPublic>({
+    queryKey: ["currentUser"],
+    queryFn: () =>
+      UsersService.readUserMe() as Promise<UserPublic>,
+  })
+}
+
 function UsersTable() {
-  const queryClient = useQueryClient()
-  const currentUser = queryClient.getQueryData<UserPublic>(["currentUser"])
+  const { data: currentUser } = useCurrentUser()
   const navigate = useNavigate({ from: Route.fullPath })
   const { page } = Route.useSearch()
 
