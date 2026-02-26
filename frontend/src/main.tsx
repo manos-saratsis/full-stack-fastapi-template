@@ -23,6 +23,39 @@ const handleApiError = (error: Error) => {
     window.location.href = "/login"
   }
 }
+
+// Initialize Dynatrace user identification and session properties
+const initializeDynatrace = () => {
+  if (typeof (window as any).dtrum !== 'undefined') {
+    // Identify user if authenticated
+    const accessToken = localStorage.getItem("access_token")
+    if (accessToken) {
+      try {
+        const payload = JSON.parse(atob(accessToken.split('.')[1]))
+        if (payload.sub) {
+          (window as any).dtrum.identifyUser(payload.sub)
+        }
+      } catch (e) {
+        // Token parsing failed, continue without user identification
+      }
+    }
+
+    // Add session properties
+    (window as any).dtrum.sendSessionProperties({
+      'app.name': 'frontend',
+      'app.environment': import.meta.env.MODE || 'development',
+      'app.version': import.meta.env.VITE_APP_VERSION || '1.0.0'
+    })
+  }
+}
+
+// Initialize Dynatrace when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeDynatrace)
+} else {
+  initializeDynatrace()
+}
+
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: handleApiError,
