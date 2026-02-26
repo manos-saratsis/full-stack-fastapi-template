@@ -17,6 +17,11 @@ interface NewPasswordForm extends NewPassword {
 
 export const Route = createFileRoute("/reset-password")({
   component: ResetPassword,
+  validateSearch: (search: Record<string, unknown>): { token?: string } => {
+    return {
+      token: typeof search.token === "string" ? search.token : undefined,
+    }
+  },
   beforeLoad: async () => {
     if (isLoggedIn()) {
       throw redirect({
@@ -42,9 +47,9 @@ function ResetPassword() {
   })
   const { showSuccessToast } = useCustomToast()
   const navigate = useNavigate()
+  const { token } = Route.useSearch()
 
   const resetPassword = async (data: NewPassword) => {
-    const token = new URLSearchParams(window.location.search).get("token")
     if (!token) return
     await LoginService.resetPassword({
       requestBody: { new_password: data.new_password, token: token },
