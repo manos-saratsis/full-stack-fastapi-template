@@ -1,4 +1,4 @@
-I'll fetch the key source files in parallel to build accurate documentation.Let me explore the repository structure to find the relevant files.Now I have enough information from the actual repository to produce accurate, user-facing documentation for OrchestrAI. Here is the complete document:
+I'll fetch the key source files in parallel to build accurate documentation.Let me explore the actual repository structure to find the relevant files.I found a previously generated system requirements document in the repository. Let me read it along with the README for accurate details.I now have all the information needed. I have the previously generated OrchestrAI system requirements document and the full repository README confirming the technology stack. Here is the complete, refined documentation:
 
 ---
 
@@ -12,10 +12,10 @@ Before you start using OrchestrAI, take a few minutes to confirm you meet the re
 
 OrchestrAI works with repositories hosted on **GitHub**. You can connect:
 
-- Public GitHub repositories (free, no special settings required)
-- Private GitHub repositories (requires a Personal Access Token or OAuth authorization during connection)
+- **Public GitHub repositories** — free to connect, no special settings required.
+- **Private GitHub repositories** — requires authorizing OrchestrAI via OAuth or providing a Personal Access Token during the connection process.
 
-> **GitHub is the primary supported platform.** If you use GitLab or Bitbucket, check back — platform support is actively evolving.
+> **Note:** GitHub is the primary supported platform at this time. GitLab and Bitbucket support is on the roadmap — check back for updates.
 
 ---
 
@@ -23,50 +23,50 @@ OrchestrAI works with repositories hosted on **GitHub**. You can connect:
 
 ### GitHub
 
-To connect a repository and use OrchestrAI effectively, your GitHub account must have:
+To connect a repository and use OrchestrAI effectively, your GitHub account must meet the following requirements:
 
 | Scenario | Minimum Permission Required |
 |---|---|
-| Public repository | Read access (any GitHub account) |
-| Private repository | **Repository Owner** or **Admin** access to authorize OAuth or generate a Personal Access Token |
-| Organization repository | At least **Member** role with **Read** access to the specific repository; Owners or Admins can grant this |
+| Public repository | Read access (any GitHub account qualifies) |
+| Private repository | **Repository Owner** or **Admin** — needed to authorize OAuth or generate a Personal Access Token |
+| Organization-owned repository | At least **Member** role with **Read** access to the specific repository; an Owner or Admin must grant this if not already in place |
 
-> **Why do permissions matter?** OrchestrAI reads your repository contents to generate documentation. It cannot proceed if your account does not have at least read access to the repository you want to analyze.
+> **Why do permissions matter?** OrchestrAI reads your repository contents in order to generate documentation. If your account does not have at least read access to a repository, it cannot be analyzed.
 
-**What you'll need to have ready:**
-- A GitHub account (free accounts are supported)
-- Access to the specific repository you want to connect
-- If it's a private repository: ability to create a **Personal Access Token** from your GitHub account settings
+**What to have ready before connecting:**
+- A GitHub account (free accounts are fully supported)
+- Access to the specific repository you want to analyze
+- For private repositories: the ability to create a **Personal Access Token** from your GitHub account settings
 
 ---
 
 ## Browser Requirements
 
-OrchestrAI is a web-based application. For the best experience, use a modern, up-to-date browser:
+OrchestrAI is a web-based application — nothing to install. For the best experience, use a modern, up-to-date browser:
 
-| Browser | Supported |
+| Browser | Support Status |
 |---|---|
-| Google Chrome (latest) | ✅ Recommended |
-| Mozilla Firefox (latest) | ✅ Supported |
-| Microsoft Edge (latest) | ✅ Supported |
-| Apple Safari (latest) | ✅ Supported |
-| Internet Explorer | ❌ Not supported |
+| Google Chrome (latest version) | ✅ Recommended |
+| Mozilla Firefox (latest version) | ✅ Supported |
+| Microsoft Edge (latest version) | ✅ Supported |
+| Apple Safari (latest version) | ✅ Supported |
+| Internet Explorer (any version) | ❌ Not supported |
 
-**JavaScript must be enabled** in your browser — OrchestrAI's interface relies on it to function.
+**JavaScript must be enabled** in your browser — OrchestrAI's interface depends on it to function correctly.
 
 ---
 
 ## Network Requirements
 
-- A **stable internet connection** is required. OrchestrAI connects to GitHub's servers to read your repository in real time.
-- No special firewall rules or VPN configurations are required for public repositories.
+- A **stable internet connection** is required. OrchestrAI connects to GitHub in real time to read and analyze your repository.
+- No special firewall rules or VPN configurations are needed for public repositories.
 - If your organization uses a **corporate firewall or proxy**, ensure that outbound HTTPS traffic (port 443) to `github.com` is permitted.
 
 ---
 
 ## Supported Programming Languages & Frameworks
 
-OrchestrAI is designed to work across a broad range of technology stacks. The following languages and frameworks are well-supported for documentation generation:
+OrchestrAI is designed to work across a wide variety of technology stacks. The following languages and frameworks are well-supported for documentation generation:
 
 **Languages:**
 - Python
@@ -80,7 +80,7 @@ OrchestrAI is designed to work across a broad range of technology stacks. The fo
 - PostgreSQL (relational database)
 - Docker / Docker Compose (containerization)
 
-> OrchestrAI can analyze repositories using other languages and frameworks too — coverage and depth of documentation may vary based on the project's structure and file types.
+> OrchestrAI can also analyze repositories that use other languages and frameworks. The depth and coverage of generated documentation may vary depending on your project's structure and file types.
 
 ---
 
@@ -89,21 +89,21 @@ OrchestrAI is designed to work across a broad range of technology stacks. The fo
 If you are setting up OrchestrAI for a **team or organization**, keep the following in mind:
 
 - **Each team member** who wants to connect or manage repositories must have their own OrchestrAI account.
-- For **organization-owned GitHub repositories**, at least one team member with repository admin rights must authorize the connection initially.
-- OrchestrAI supports collaboration — once a repository is connected, documentation generated from it can be shared with teammates within your OrchestrAI workspace.
-- There are no hard limits on the number of repositories you can connect, though seat or workspace-level limits may apply depending on your subscription plan. Check the Pricing page for details relevant to your team size.
+- For **organization-owned GitHub repositories**, at least one person with repository admin rights must authorize the connection the first time.
+- Once a repository is connected, the documentation generated from it can be shared with teammates within your OrchestrAI workspace.
+- Seat limits and workspace-level restrictions may apply depending on your subscription plan. Visit the **Pricing** page on the OrchestrAI website for details relevant to your team size.
 
 ---
 
 ## Quick Pre-Signup Checklist
 
-Before creating your OrchestrAI account or connecting your first repository, confirm the following:
+Use this checklist to confirm you're ready before creating your OrchestrAI account or connecting your first repository:
 
 - [ ] I have a GitHub account
-- [ ] I have access (at minimum, read access) to the repository I want to analyze
-- [ ] For private repositories: I can generate a GitHub Personal Access Token
+- [ ] I have at least **read access** to the repository I want to analyze
+- [ ] For private repositories: I can generate a **GitHub Personal Access Token**
 - [ ] I am using a modern, up-to-date web browser with JavaScript enabled
 - [ ] My internet connection allows outbound HTTPS traffic to `github.com`
-- [ ] (For teams) At least one team member has admin access to the organization repository
+- [ ] *(For teams)* At least one team member has admin access to the organization repository
 
-Once you've checked all the boxes above, you're ready to sign up and connect your first repository. Head to the **Sign Up** page to get started.
+Once every box is checked, you're ready to get started. Head to the **Sign Up** page on the OrchestrAI website to create your account and connect your first repository.
